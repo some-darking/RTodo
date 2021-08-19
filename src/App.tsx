@@ -1,24 +1,35 @@
-import React from 'react-dom/node_modules/@types/react';
-import './App.css';
-//import './styles/main';
+import React, { useState } from 'react';
 import TodoItem from './components/TodoItem ';
-import { Todo } from './components/type';
+import { Todo, TogleTodo } from './components/type';
 
 
-const todoItems: Array<Todo> = [
+const initialTodos: Array<Todo> = [
   { text: "task 1", complete: true },
   { text: "task 2", complete: false }
 ];
 
 const App: React.FC = () => {
+  const [todoItems, setTodos]=useState(initialTodos);
+  //function on/off 
+  const togleTodo:TogleTodo=selectedTodo=> {//ref on task до const toggleTodo=(selectedTodo:Todo)=> {
+    const newTodos = todoItems.map(todo =>{
+      if(todo===selectedTodo){
+        return {//return new element
+          ...todo,
+          complete: !todo.complete //opposed todo
+        };
+      }
+      return todo;
+    }); //array todos
+    setTodos(newTodos);
+  };
   return (
-    <div>
+    <div className="tree">
       <React.Fragment>
-        <TodoItem todo={todoItems[0]} />
-        <TodoItem todo={todoItems[1]} />
+      <TodoItem todo={todoItems[0]} togleTodo={togleTodo}/>
+      <TodoItem todo={todoItems[1]} togleTodo={togleTodo}/>
       </React.Fragment>
     </div>
-
   );
 };
 
