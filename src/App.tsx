@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AddTodoForm } from './components/AddTodoForm';
 //import TodoItem from './components/TodoItem ';
 import TodoList from './components/TodoList';
-import { Todo, ToggleTodo } from './components/type';
+import { AddTodo, Todo, ToggleTodo } from './components/type';
 
 
 const initialTodos: Array<Todo> = [
@@ -25,10 +25,15 @@ const App: React.FC = () => {
     }); //array todos
     setTodos(newTodos);
   };//<TodoItem todo={todoItems[0]} toggleTodo={toggleTodo}/> on list
+  
+  const addTodo:AddTodo=newTodo=>{//(newTodo:string) type
+    newTodo.trim()!=="" &&//проверка на пустой ввод
+    setTodos([...todoItems, {text:newTodo, complete:false}])
+  }
   return (
     <div className="list">
       <React.Fragment>
-        <AddTodoForm/>
+        <AddTodoForm addTodo={addTodo}/>
       <TodoList todoItems={todoItems} toggleTodo={toggleTodo}/>
       </React.Fragment>
     </div>
