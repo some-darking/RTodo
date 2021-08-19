@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import TodoItem from './components/TodoItem ';
-import { Todo, TogleTodo } from './components/type';
+import { AddTodoForm } from './components/AddTodoForm';
+//import TodoItem from './components/TodoItem ';
+import TodoList from './components/TodoList';
+import { Todo, ToggleTodo } from './components/type';
 
 
 const initialTodos: Array<Todo> = [
@@ -11,7 +13,7 @@ const initialTodos: Array<Todo> = [
 const App: React.FC = () => {
   const [todoItems, setTodos]=useState(initialTodos);
   //function on/off 
-  const togleTodo:TogleTodo=selectedTodo=> {//ref on task до const toggleTodo=(selectedTodo:Todo)=> {
+  const toggleTodo:ToggleTodo=selectedTodo=> {//ref on task до const toggleTodo=(selectedTodo:Todo)=> {
     const newTodos = todoItems.map(todo =>{
       if(todo===selectedTodo){
         return {//return new element
@@ -22,12 +24,12 @@ const App: React.FC = () => {
       return todo;
     }); //array todos
     setTodos(newTodos);
-  };
+  };//<TodoItem todo={todoItems[0]} toggleTodo={toggleTodo}/> on list
   return (
-    <div className="tree">
+    <div className="list">
       <React.Fragment>
-      <TodoItem todo={todoItems[0]} togleTodo={togleTodo}/>
-      <TodoItem todo={todoItems[1]} togleTodo={togleTodo}/>
+        <AddTodoForm/>
+      <TodoList todoItems={todoItems} toggleTodo={toggleTodo}/>
       </React.Fragment>
     </div>
   );
