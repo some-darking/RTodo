@@ -18,6 +18,7 @@ export const AddTodoForm: React.FC<AddTodoFormComp> = ({addTodo}) => {
 
     return (
         <form>
+            <label>TODO:  </label>
             <input type="text" value={newTodo} onChange={handleChange} />
             <button type="submit" onClick={hundleSumbit}>+</button>
         </form>
