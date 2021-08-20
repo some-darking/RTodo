@@ -11,11 +11,13 @@ export interface TodoItemProps {
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo }) => {
 
     return (
-        <div className={todo.complete ? "complete" : undefined}>
-            {todo.text}
-            <input type="checkbox" checked={todo.complete}
-                onChange={() => toggleTodo(todo)}></input>
-        </div>
+        <div className={todo.complete ? "complete" : undefined} >
+            <label className="check">
+                <input type="checkbox" className="check__input" checked={todo.complete}
+                    onChange={() => toggleTodo(todo)}></input>
+                {todo.text}
+            </label>
+        </div >
     )
 }
 export default TodoItem

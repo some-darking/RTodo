@@ -10,12 +10,14 @@ export interface TodoListComp {
 export const TodoList: React.FC<TodoListComp> = ({ todoItems, toggleTodo }) => {
 
   return (
-    <ul>
-      {todoItems.map(todo => {
-        return (
-          <TodoItem key={todo.text} todo={todo} toggleTodo={toggleTodo} />//ключ для точного текста, чтобы текст был и на погружение отправлял на создание массива
-        )
-      })}
+    <ul className="squaredThere">
+      <li>
+        {todoItems.map(todo => {
+          return (
+            <TodoItem key={todo.text} todo={todo} toggleTodo={toggleTodo} />//ключ для точного текста, чтобы текст был и на погружение отправлял на создание массива
+          )
+        })}
+      </li>
     </ul>)
 }
 
