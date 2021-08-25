@@ -41,30 +41,30 @@ class _App extends React.Component<AppProps, AppState> {
   constructor(props: AppProps) {
     super(props);
 
-    this.state = { fetching: false };
+    //  this.state = { fetching: false };
   }
 
-  componentDidUpdate(prevProps: AppProps): void {
+  /*componentDidUpdate(prevProps: AppProps): void {
     if (!prevProps.todos.length && this.props.todos.length) {
       this.setState({ fetching: false });
     }
-  }
+  }*/
   DispathToggleTodoItem = () => {
     // ToggleTodoItem(todo.id)
   }
-
 
   renderList = (): JSX.Element[] => {
     return (
       this.props.todos.map((todo: Todo) => {//onChange={DispathToggleTodoItem}
         return (
           <div >
-            <input type="checkbox" className={todo.completed ? "complete" : undefined} checked={todo.completed}></input>
-            <label onClick={() => this.onTodoClick(todo.id)} key={todo.id} >
-              {todo.text}
-              <button >x</button>
-            </label>
-
+            <div>
+              <input type="checkbox" className={todo.completed ? "complete" : undefined} checked={todo.completed = true} />
+              <label onClick={() => this.onTodoClick(todo.id)} key={todo.id} >
+                {todo.text}
+                <button >x</button>
+              </label>
+            </div>
           </div>
         );
       })
@@ -97,13 +97,11 @@ class _App extends React.Component<AppProps, AppState> {
             {this.renderList()}
           </ul>
         </div>
-        <button onClick={this.onButtonClick}>Fetch</button>
-        {this.state.fetching ? 'LOADING' : null}
-
       </div>
     )
   }
-}
+}//<button onClick={this.onButtonClick}>Fetch</button>
+//{this.state.fetching ? 'LOADING' : null}
 
 const mapStateToProps = ({ todos }: StoreState): { todos: Todo[] } => {
   return { todos }
