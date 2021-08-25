@@ -33,13 +33,13 @@ export const AddTodoForm: FC = () => {
     //    e.preventDefault(); addTodo(newTodo);setNewtodo("");};
     //console.log('render')
     return (
-        <div>
-            <form>
-                <label>TODO:</label>
-                <input type="text" value={inputValue} onChange={handleEditInputValu} onKeyDown={handleEnterButton} />
-                <button type="submit" onClick={addNewTodoItem}>+</button>
-            </form>
+
+        <div className="todo__form">
+            <label>TODO:</label>
+            <input type="text" value={inputValue} onChange={handleEditInputValu} onKeyDown={handleEnterButton} />
+            <button type="submit" onClick={addNewTodoItem}>+</button>
         </div>
+
     );
     /*return ( //?
         <form>

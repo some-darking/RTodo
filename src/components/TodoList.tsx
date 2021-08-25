@@ -14,13 +14,13 @@ export const TodoList: React.FC = () => {
   const { state } = useContext(TodoContex);
 
   return (
-    <div>
-      <ul className="squaredThere">
-        {state.TodoItems.map((todoItem: TodoItemModel, index: number) => (
-          <TodoItem key={index} id={todoItem.id} text={todoItem.text} complete={todoItem.complete} />
-        ))}
-      </ul>
-    </div>
+
+    <ul className="squaredThere">
+      {state.TodoItems.map((todoItem: TodoItemModel, index: number) => (
+        <TodoItem key={index} id={todoItem.id} text={todoItem.text} complete={todoItem.complete} />
+      ))}
+    </ul>
+
   )/*
 
   return (

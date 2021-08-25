@@ -62,7 +62,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    > form {
+    .todo__form {
         background-color: $dark-blue;
         display: flex;
         justify-content: space-between;
@@ -94,45 +94,46 @@ button {
         padding: 0;
         list-style: none;
         font-size: 20px;
+        background-color: white;
 
-        > li {
-            padding: 15px;
-            line-height: 25px;
-            position: relative;
-            cursor: pointer;
-            background-color: white;
-            button {
-                font-size: 20px;
-                float: right;
-                border: none;
-                background: none;
-            }
-            /*  &:hover {
+        // > li {
+        padding: 15px;
+        line-height: 25px;
+        position: relative;
+        cursor: pointer;
+        background-color: white;
+        button {
+            font-size: 20px;
+            float: right;
+            border: none;
+            background: none;
+        }
+        /*  &:hover {
                 span {
                     background-color: #eee;
                 }
             }*/
-            > input[type="text"] {
-                background: blue;
-                border: none;
-                margin-left: 30px;
-                width: calc(100% - 100px);
-            }
-            > input[type="checkbox"] {
-                position: absolute;
-                opacity: 0;
-                cursor: pointer;
-                height: 0;
-                width: 0;
-                &:checked {
-                    ~ span {
-                        background-color: #00bcd4;
-                        &::after {
-                            display: block;
-                        }
+        > input[type="text"] {
+            background: blue;
+            border: none;
+            margin-left: 30px;
+            width: calc(100% - 100px);
+        }
+        > input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            &:checked {
+                ~ span {
+                    background-color: #00bcd4;
+                    &::after {
+                        display: block;
                     }
                 }
             }
         }
+        // }
     }
 }
