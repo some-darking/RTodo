@@ -1,7 +1,8 @@
-export type Todo = {
+export interface Todo {
+  id: number;
   text: string;
   complete: boolean;
-};
+}
 export type ToggleTodo = (selectedTodo: Todo) => void;
 export type AddTodo = (newTodo: string) => void;
 
@@ -18,3 +19,51 @@ export interface TodoContexModel {
   state: TodoState;
   dispatch: any
 }
+//new
+//store
+export type complete = string[];
+export type incomplete = string[];
+
+interface storeType {
+  complete: complete;
+  incomplete: incomplete;
+}
+export interface Action {//*
+  readonly type: string,
+  readonly value: any//payload
+}
+
+export default storeType;
+
+//action
+export interface markCompleteAction {
+  type: "MARK_COMPLETE";
+  todo: string;
+}
+
+export interface markIncompleteAction {
+  type: "MARK_INCOMPLETE";
+  todo: string;
+}
+//-
+export interface deleteTodoAction {
+  type: "DELETE_TODO";
+  todo: string;
+}
+
+//createaction
+/*
+import {
+  deleteTodoAction,
+  markIncompleteAction,
+  markCompleteAction,
+} from "./actionsType";
+
+export type markCompleteActionCreator = (todo: string) => markCompleteAction;
+
+export type markIncompleteActionCreator = (
+  todo: string
+) => markIncompleteAction;
+
+export type deleteTodoActionCreator = (todo: string) => deleteTodoAction;
+*/

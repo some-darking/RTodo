@@ -2,9 +2,11 @@ import React from 'react'
 import { useContext } from 'react';
 import { TodoItemModel } from './type';
 import '../styles/main.scss';
-import { ToggleTodoItem } from './Action';
-import { TodoContex } from './ToDoReduce';
-//import { dispatch } from './TodoInput';
+//import { ToggleTodoItem } from './Action';
+//import { TodoContex } from './ToDoReduce';
+//import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 /*export interface TodoItemProps {
     todo: Todo;
@@ -12,10 +14,12 @@ import { TodoContex } from './ToDoReduce';
     //то есть      label: string     complete: boolean 
 }*/
 export const TodoItem: React.FC<TodoItemModel> = (todoItem: TodoItemModel) => {//! TodoItemProps
-    const { dispatch } = useContext(TodoContex);
-    function DispathToggleTodoItem() {
-        dispatch(ToggleTodoItem(todoItem.id))
+    //  const { dispatch } = useContext(TodoContex);
+    const DispathToggleTodoItem = () => {
+        //  dispatch(ToggleTodoItem(todoItem.id))
     }
+
+
     return (//! todoItem==todo   toggleTodo(todo)
         <div className={todoItem.complete ? "complete" : undefined} >
             <label className="check">
@@ -25,5 +29,6 @@ export const TodoItem: React.FC<TodoItemModel> = (todoItem: TodoItemModel) => {/
             </label>
         </div >
     )
+
 }
-export default TodoItem
+export default connect()(TodoItem);

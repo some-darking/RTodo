@@ -1,6 +1,7 @@
 import React, { FC, ChangeEvent, useState, useContext } from 'react'
-import { AddTodoItem } from './Action';
-import { TodoContex } from './ToDoReduce';
+import { Todo } from './Action';//AddTodoItem
+//import { TodoContex } from './ToDoReduce';
+import { connect } from 'react-redux';
 
 
 /*export interface AddTodoFormComp {
@@ -8,7 +9,7 @@ import { TodoContex } from './ToDoReduce';
 }
 <AddTodoFormComp></AddTodoFormComp>*/
 export const AddTodoForm: FC = () => {
-    const { dispatch } = useContext(TodoContex);
+    //  const { dispatch } = useContext(TodoContex);// dispatch между store  и action, перенаправляет action
     const [inputValue, updateInputValue] = useState("");
     //?const [newTodo, setNewtodo] = useState("");
 
@@ -19,7 +20,7 @@ export const AddTodoForm: FC = () => {
     //    setNewtodo(e.target.value);};//точное значение
     const addNewTodoItem = () => {//обработчик отправки 
         if (inputValue) {
-            dispatch(AddTodoItem(inputValue));
+            // dispatch(Todo(inputValue));
             updateInputValue("");
         }
     }
@@ -29,6 +30,8 @@ export const AddTodoForm: FC = () => {
             addNewTodoItem();
         }
     }
+
+
     //? const hundleSumbit = (e: FormEvent<HTMLButtonElement>) => {//обработчик отправки 
     //    e.preventDefault(); addTodo(newTodo);setNewtodo("");};
     //console.log('render')
@@ -50,4 +53,4 @@ export const AddTodoForm: FC = () => {
     );*/
 };
 
-export default AddTodoForm;
+export default connect()(AddTodoForm);//todo:
