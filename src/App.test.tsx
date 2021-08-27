@@ -1,6 +1,6 @@
-import  React from 'react';
+import React from 'react';
 import { ReactDOM } from 'react';
-import './styles/main.scss';
+//import './styles/main.scss';
 
 import { render, screen } from '@testing-library/react';
 import App from './App';

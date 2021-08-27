@@ -66,11 +66,12 @@ const url = 'https://jsonplaceholder.typicode.com/todos';
 
 export const fetchTodos = () => {
     return async (dispatch: Dispatch) => {
-        const response = await axios.get<Todo[]>(url);
-
+        const response = await fetch(url, {method : "GET"})//await axios.get<Todo[]>(url);
+       
+           
         dispatch<FetchTodosAction>({
             type: ActionTypes.fetchTodos,
-            payload: response.data
+            payload: (response as any).data
         });
     };
 };

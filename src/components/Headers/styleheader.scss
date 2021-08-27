@@ -1,0 +1,21 @@
+.header {
+    background: #1c3d5e;
+
+    height: 25px;
+    padding: 25px 10%;
+    text-align: justify;
+    letter-spacing: 1px;
+    font-family: "Roboto", cursive;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    margin: 5%;
+}
+a.active {
+    color: rgba(173, 230, 245, 0.87);
+    text-decoration: none;
+    margin: 5%;
+    font-size: 150%;
+}

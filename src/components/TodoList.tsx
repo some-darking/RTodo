@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import TodoItem from './TodoItem ';
 //import { TodoContex } from './ToDoReduce';
-import { TodoItemModel } from './type';
+import { TodoItemModel } from './To_do/type';
 import { connect } from 'react-redux';
 //import {TodoItem, TodoItemProps} from './TodoItem ';
 

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TodoItemModel } from '../src/components/type';
+import { TodoItemModel } from '../src/components/To_do/type';
 import { v4 as uuidv4 } from "uuid";
 
 interface CounterState {

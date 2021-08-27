@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react';
-import { TodoItemModel } from './type';
+import { TodoItemModel } from './To_do/type';
 import '../styles/main.scss';
 //import { ToggleTodoItem } from './Action';
 //import { TodoContex } from './ToDoReduce';

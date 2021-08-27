@@ -12,11 +12,13 @@ import { Todo, ActionTypes, Action } from "./Action";
 
 
 export const todosReducers = (state: Todo[] = [], action: Action) => {
+
     switch (action.type) {
         case ActionTypes.fetchTodos:
             return action.payload;
         case ActionTypes.deleteTodo:
             return [...state.filter((todo) => todo.id !== action.payload)]
+
         //state.filter((todo: Todo) => todo.id !== action.payload); // action: DeleteTodoAction
         case ActionTypes.addTodos:
             return [...state.concat(action.payload.todo)];
