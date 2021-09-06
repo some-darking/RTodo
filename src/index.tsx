@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import thunk from "redux-thunk";
+//import { Provider } from "./components/todosStore";//"react-redux";//
+//import thunk from "redux-thunk";
 //import { createStore } from "redux";
-import { todosReducers, reducers } from './components/To_do/ToDoReduce';
-import { store } from './components/To_do/store';
+//import { todosReducer, reducers } from './components/To_do/ToDoReduce';
+import { useStore, reducer, initialState, Provider } from './components/To_do/store';
 import Header from "./components/Headers/Header"
 import { BrowserRouter } from 'react-router-dom';
+import { State } from './components/To_do/store';
 
-ReactDOM.render(
+export const [state, dispatch] = useReducer(reducer, initialState); //, initialState
+
+export interface TodoContexModel {
+  state: State;
+  dispatch: any
+}
+export const TodoContex: React.Context<TodoContexModel> = React.createContext({
+  state: initialState,
+  dispatch: null
+});
+
+ReactDOM.render(// store={store}
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider >
       <BrowserRouter>
         <div>
           <App />
@@ -22,3 +34,17 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+/*
+ReactDOM.render(// store={store}
+  <React.StrictMode>
+    <TodoContex.Provider value={{ state, dispatch }}>
+      <BrowserRouter>
+        <div>
+          <App />
+        </div>
+      </BrowserRouter>
+    </TodoContex.Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);*/

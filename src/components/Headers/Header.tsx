@@ -4,15 +4,15 @@ import "./styleheader.scss";
 //import {Lin//import NavLink from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import NewComp from "../counttotalizer/NewComp";
-import TodoApp from "../To_do/TodoApp";
-import { addTodos } from "../To_do/Action";
+import TodoList from "../To_do/TodoList";
+//import { addTodos } from "../To_do/Action";
 
-const Header = () => {
+const Header = () => {//button
     return (//activeClassName={a.active}
         <div className="header">
             <NavLink to="/About">About</NavLink>
             <NavLink to="/NewComp">NewComp</NavLink>
-            <NavLink to="/TodoApp">ToDo</NavLink>
+            <NavLink to="/TodoList">ToDo</NavLink>
         </div >
     )
 }// no <NavLink to="/NewComp">NewComp</NavLink>

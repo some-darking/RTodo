@@ -1,10 +1,11 @@
 .counter {
     font-family: "Roboto", cursive;
-    min-width: 500px;
-    max-height: 100vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 15px;
+    text-align: center;
+    margin-top: 20%;
+    min-width: 50%;
+    max-height: 50%;
+    left: 20%;
     position: absolute;
     .counter__form {
         background-color: #1c3d5e; //;
@@ -16,7 +17,7 @@
             font-size: 20px;
             background-color: #399aa7; //#56b2e7;
             border: none;
-            color: white;
+            color: rgb(255, 255, 255);
         }
         > a {
             font-size: 20px;

@@ -82,6 +82,9 @@ button {
                 color: white;
             }
         }
+        .myCount {
+            width: calc(50px);
+        }
         > button {
             font-weight: bold;
             padding: 10px 15px;
@@ -91,7 +94,7 @@ button {
             color: white;
         }
     }
-    > ul {
+    .todo__list {
         margin: 0;
         padding: 0;
         list-style: none;
@@ -121,21 +124,21 @@ button {
             margin-left: 30px;
             width: calc(100% - 100px);
         }
-        > input[type="checkbox"] {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-            &:checked {
-                ~ span {
-                    background-color: #00bcd4;
-                    &::after {
-                        display: block;
-                    }
-                }
-            }
-        }
+
         //}
+    }
+}
+
+.todo__pages {
+    font-weight: bold;
+    padding: 5px;
+    background-color: #399aa7;
+    border: none;
+
+    .selectedPageAction {
+        color: red// white;
+    }
+    .selectedPage {
+        color: rgb(181, 189, 196);
     }
 }
